@@ -27,10 +27,14 @@ change -> PasswordAuthentication yes
 
 iii. List the Linux release you are using
 $cat /etc/redhat-release
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/linux_version.PNG?raw=true)
+```
 iv. List the file system capacity for the first node (master node)
 $df -h
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/df.PNG?raw=true)
+```
 v. List the command and output for yum repolist enabled
 Configure the repository for CM 5.15.2
   $ sudo yum install -y wget
@@ -44,7 +48,9 @@ https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/RPM-GPG-KEY-cloudera
 
   verify yum replist
   $yum repolist
-  
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/yum_repolist.PNG?raw=true)
+```
 vi. List the /etc/passwd entries for training (only in master name node)
 $getent passwd training
 
