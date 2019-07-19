@@ -166,17 +166,32 @@ access the cm UI admin / admin
 
 set up the hosts
 m1, cm, d1, d2, d3
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/cm_host.PNG?raw=true)
+```
 verify parcel cm version 5.15.2
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/cm_parcel.PNG?raw=true)
+```
+agent install
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/cm_install.PNG?raw=true)
+```
 hadoop core 로 먼저 설치
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/set_role.PNG?raw=true)
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/cm_database.PNG?raw=true)
+```
 impala 설치 후 sqoop 설치
 
 설치 완료 화면
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/cm_finish.PNG?raw=true)
+```
 hue 화면
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/cm_hue.PNG?raw=true)
+```
 
 ```
 # In MySQL create the sample tables that will be used for the rest of the test
