@@ -141,4 +141,66 @@ sudo rm /etc/cloudera-scm-server/db.mgmt.properties
 8. cloudera manager 실행 (CM Host)
 sudo systemctl start cloudera-scm-server
 sudo tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log --> 로그 확인
+
+install the cluster
+access the cm UI admin / admin
+
+set up the hosts
+m1, cm, d1, d2, d3
+
+verify parcel cm version 5.15.2
+
+hadoop core 로 먼저 설치
+
+impala 설치 후 sqoop 설치
+
+설치 완료 화면
+
+hue 화면
+
+
 ```
+# In MySQL create the sample tables that will be used for the rest of the test
+```
+$ mysql -u root -p
+
+create database
+CREATE DATABASE test;
+EXIT;
+
+git bash 사용해 zip 파일 가져오기
+$scp posts.sql.zip training@13.124.203.61:.
+$scp authors.sql.zip training@13.124.203.61:.
+
+training 계정 접속
+zip파일 해제 위해 unzip 설치
+$sudo yum install -y unzip
+$unzip posts.sql.zip
+$unzip authors.sql.zip
+
+table 생성 위해 아래 명령어
+$mysql -u root -p test < ./authors-23-04-2019-02-34-beta.sql
+$mysql -u root -p test < ./posts23-04-2019\ 02-44.sql
+
+training 계정 권한 주기
+$ mysql -u root -p
+GRANT ALL ON test.* TO 'training'@'%' IDENTIFIED BY 'training';
+GRANT ALL ON test.* TO 'training'@'localhost' IDENTIFIED BY 'training';
+FLUSH PRIVILEGES;
+
+training 계정 권한 확인
+$ mysql -u training -p
+
+show databases;
+use test;
+show tables;
+
+desc authors;
+desc posts;
+
+select count(*) from authors;
+select count(*) from posts;
+
+select * from authors limit 10;
+select * from posts limit 10;
+
