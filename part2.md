@@ -129,4 +129,18 @@ SELECT CONCAT('A', id),
 
 SELECT * FROM solution;
 ```
+# problem 10
+```
+CREATE VIEW solution AS
+SELECT A.id,
+       A.fname,
+       A.lname,
+       A.city,
+       A.state,
+       B.charge,
+       substr(B.tstamp,1,10) AS billdata
+  FROM customer A, billing B
+  where A.id = B.id;
 
+select * from solution;	
+```
