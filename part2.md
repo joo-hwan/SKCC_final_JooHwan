@@ -55,3 +55,21 @@ select a.custid from account a where a.amount > 0 and a.custid = c.id
 );
 
 ```
+# problem 4
+```
+```
+# problem 5
+```
+INSERT OVERWRITE LOCAL DIRECTORY '/home/training/problem5/result'
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+SELECT fname, lname, zip, city, state
+  FROM problem5.customer
+ WHERE city = 'Palo Alto'
+   AND state = 'CA'
+ UNION ALL
+SELECT fname, lname, zip, city, state
+  FROM problem5.employee
+ WHERE city = 'Palo Alto'
+   AND state = 'CA'
+
+```
