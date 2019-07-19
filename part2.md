@@ -179,5 +179,14 @@ select * from solution;
 ```
 # problem 11
 ```
-
+SELECT A.brand,
+       A.name,
+       COUNT(A.prod_id) AS cnt
+  FROM products A
+  JOIN order_details B
+    ON (A.prod_id = B.prod_id)
+ WHERE A.brand = 'Dualcore'
+ GROUP BY brand, name, A.prod_id
+ ORDER BY cnt DESC
+ LIMIT 3;
 ```
