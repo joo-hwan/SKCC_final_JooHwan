@@ -94,7 +94,7 @@ select * from solution;
 
 # problem 7
 ```
-elect concat(lname, ',', fname) as fullname from problem7.employee where city = 'Seattle'
+select concat(lname, ',', fname) as fullname from problem7.employee where city = 'Seattle'
 order by fullname;
 ```
 # problem 8
