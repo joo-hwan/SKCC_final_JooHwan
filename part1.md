@@ -234,9 +234,15 @@ desc posts;
 
 select count(*) from authors;
 select count(*) from posts;
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/training_verify1.PNG?raw=true)
+```
 
 select * from authors limit 10;
 select * from posts limit 10;
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/training_verify2.PNG?raw=true)
+```
 ```
 # Extract tables authors and posts from the database and create Hive tables.
 ```
@@ -244,9 +250,11 @@ $sqoop import --connect jdbc:mysql://172.31.36.41:3306/test --username training 
 
 $sqoop import --connect jdbc:mysql://172.31.36.41:3306/test --username training --password training --table posts --target-dir /user/training/posts --hive-import --create-hive-table --hive-table default.posts --input-fields-terminated-by '\t'
 
-author 테이블 external로 변경
+authors 테이블 external로 변경
 Alter table default.authors SET TBLPROPERTIES('EXTERNAL'='TRUE')
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/hive_external.PNG?raw=true)
+```
 ```
 # Create and run a Hive/Impala query. From the query, generate the results dataset that you will use in the next step to export in MySQL.
 ```
@@ -259,10 +267,13 @@ from default.authors a,
 (select author_id, count(*) as cnt from default.posts group by author_id) b
 where a.id = b.author_id
 ;
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/hive_results.PNG?raw=true)
+```
 CREATE TABLE results (id int NOT NULL, fname varchar(255) default NULL, Lname varchar(255) default NULL, num_posts int default 0 );
 
 sqoop export --connect jdbc:mysql://172.31.36.41:3306/test --username training --password training --table results --export-dir /user/training/results --input-fields-terminated-by '\t'
 
 select * from results limit 10;
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/sqoop_export.PNG?raw=true)
