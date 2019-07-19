@@ -16,7 +16,9 @@ $sudo hostnamectl set-hostname d1.node.com
 $sudo hostnamectl set-hostname d2.node.com
 $sudo hostnamectl set-hostname d3.node.com
 $sudo reboot
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/hosts.PNG?raw=true)
+```
 set password for user centos (SSH 접근 위해) (all host)
 $sudo passwd centos
 change the property of ssh for access another host
