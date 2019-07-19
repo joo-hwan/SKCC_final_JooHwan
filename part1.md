@@ -53,3 +53,10 @@ viii. List output of the flowing commands:
 2. getent passwd training
 
 ```
+# Install a MySQl server
+```
+install java8 (all host)
+
+install maria db
+
+```
