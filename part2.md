@@ -73,3 +73,60 @@ SELECT fname, lname, zip, city, state
    AND state = 'CA'
 
 ```
+# problem 6
+```
+create table solution (
+id INT,
+fname STRING,
+lname STRING,
+address STRING,
+city STRING,
+state STRING,
+zip STRING,
+birthyear STRING
+);
+
+insert into table solution
+select id, fname, lname, address, city, state, zip, substring(birthday, 7) as birthyear from employee;
+
+select * from solution;
+```
+
+# problem 7
+```
+elect concat(lname, ',', fname) as fullname from problem7.employee where city = 'Seattle'
+order by fullname;
+```
+# problem 8
+```
+sqoop export --connect jdbc:mysql://localhost/problem8 --username cloudera --password cloudera --export-dir /user/training/problem8/data/customer --table solution --input-fields-terminated-by '\t'
+
+```
+# problem 9
+```
+CREATE TABLE solution
+(
+	  id STRING,
+	  fname STRING,
+	  lname STRING,
+	  address STRING,
+	  city STRING,
+	  state STRING,
+	  zip STRING,
+	  birthday STRING
+)
+
+INSERT INTO TABLE solution
+SELECT CONCAT('A', id),
+	     fname,
+	     lname,
+	     address,
+	     city,
+	     state,
+	     zip,
+	     birthday
+  FROM customer;
+
+SELECT * FROM solution;
+```
+
