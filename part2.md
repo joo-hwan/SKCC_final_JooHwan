@@ -57,6 +57,39 @@ select a.custid from account a where a.amount > 0 and a.custid = c.id
 ```
 # problem 4
 ```
+CREATE TABLE employee1 (
+id INT,
+fname STRING,
+lname STRING,
+address STRING,
+city STRING,
+state STRING,
+zip STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS textfile
+LOCATION '/user/training/problem4/data/employee1/'
+;
+
+select * from employee1;
+
+CREATE TABLE employee2 (
+id INT,
+fname STRING,
+lname STRING,
+address STRING,
+city STRING,
+state STRING,
+zip STRING
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY ','
+STORED AS textfile
+LOCATION '/user/training/problem4/data/employee2/'
+;
+
+
 ```
 # problem 5
 ```
@@ -143,4 +176,8 @@ SELECT A.id,
   where A.id = B.id;
 
 select * from solution;	
+```
+# problem 11
+```
+
 ```
