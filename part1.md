@@ -24,7 +24,9 @@ $sudo passwd centos
 change the property of ssh for access another host
 $sudo vi /etc/ssh/sshd_config
 change -> PasswordAuthentication yes
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/ssh_pass.PNG?raw=true)
+```
 iii. List the Linux release you are using
 $cat /etc/redhat-release
 ```
@@ -53,10 +55,14 @@ https://archive.cloudera.com/cm5/redhat/7/x86_64/cm/RPM-GPG-KEY-cloudera
 ```
 vi. List the /etc/passwd entries for training (only in master name node)
 $getent passwd training
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/passwd.PNG?raw=true)
+```
 vii. List the /etc/group entries for skcc (only in master name node)
 $ getent group skcc
-
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/group.PNG?raw=true)
+```
 viii. List output of the flowing commands:
 1. getent group skcc
 2. getent passwd training
@@ -139,18 +145,23 @@ Thanks for using MariaDB!
   SHOW DATABASES;
  
   EXIT;
-  
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/databases.PNG?raw=true)
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/maria_version.PNG?raw=true)
+```
   6. cloudera manager 설치 (CM Host)
 sudo yum install cloudera-manager-daemons cloudera-manager-server
 7. cloudera manager db 설정 (CM Host)
 sudo /usr/share/cmf/schema/scm_prepare_database.sh mysql scm scm password
-db.mgmt.properries 존재한다면
 sudo rm /etc/cloudera-scm-server/db.mgmt.properties
 8. cloudera manager 실행 (CM Host)
 sudo systemctl start cloudera-scm-server
 sudo tail -f /var/log/cloudera-scm-server/cloudera-scm-server.log --> 로그 확인
 
 install the cluster
+```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part1/cm_login.PNG?raw=true)
+```
 access the cm UI admin / admin
 
 set up the hosts
