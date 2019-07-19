@@ -203,4 +203,32 @@ select count(*) from posts;
 
 select * from authors limit 10;
 select * from posts limit 10;
+```
+# Extract tables authors and posts from the database and create Hive tables.
+```
+$sqoop import --connect jdbc:mysql://172.31.36.41:3306/test --username training --password training --table authors --target-dir /user/training/authors --hive-import --create-hive-table --hive-table default.authors --input-fields-terminated-by '\t'
 
+$sqoop import --connect jdbc:mysql://172.31.36.41:3306/test --username training --password training --table posts --target-dir /user/training/posts --hive-import --create-hive-table --hive-table default.posts --input-fields-terminated-by '\t'
+
+author 테이블 external로 변경
+Alter table default.authors SET TBLPROPERTIES('EXTERNAL'='TRUE')
+
+```
+# Create and run a Hive/Impala query. From the query, generate the results dataset that you will use in the next step to export in MySQL.
+```
+INSERT OVERWRITE DIRECTORY '/user/training/results'
+ROW FORMAT DELIMITED
+FIELDS TERMINATED BY '\t'
+STORED AS TEXTFILE
+select a.id as Id, a.first_name as fname,a.last_name as Lname, b.cnt as num_posts
+from default.authors a, 
+(select author_id, count(*) as cnt from default.posts group by author_id) b
+where a.id = b.author_id
+;
+
+CREATE TABLE results (id int NOT NULL, fname varchar(255) default NULL, Lname varchar(255) default NULL, num_posts int default 0 );
+
+sqoop export --connect jdbc:mysql://172.31.36.41:3306/test --username training --password training --table results --export-dir /user/training/results --input-fields-terminated-by '\t'
+
+select * from results limit 10;
+```
