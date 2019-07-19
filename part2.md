@@ -16,6 +16,7 @@ SELECT A.id,
  ;
 
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem1.PNG?raw=true)
 # problem 2
 ```
 CREATE external TABLE solution (
@@ -35,6 +36,7 @@ LOCATION '/user/training/problem2/data/employee/'
 
 select * from problem2.solution;
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem2.PNG?raw=true)
 # problem 3
 ```
 create table solution (
@@ -55,6 +57,7 @@ select a.custid from account a where a.amount > 0 and a.custid = c.id
 );
 
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem3.PNG?raw=true)
 # problem 4
 ```
 CREATE TABLE employee1 (
@@ -106,6 +109,7 @@ SELECT fname, lname, zip, city, state
    AND state = 'CA'
 
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem5.PNG?raw=true)
 # problem 6
 ```
 create table solution (
@@ -124,17 +128,19 @@ select id, fname, lname, address, city, state, zip, substring(birthday, 7) as bi
 
 select * from solution;
 ```
-
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem6.PNG?raw=true)
 # problem 7
 ```
 select concat(lname, ',', fname) as fullname from problem7.employee where city = 'Seattle'
 order by fullname;
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem7.PNG?raw=true)
 # problem 8
 ```
 sqoop export --connect jdbc:mysql://localhost/problem8 --username cloudera --password cloudera --export-dir /user/training/problem8/data/customer --table solution --input-fields-terminated-by '\t'
 
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem8.PNG?raw=true)
 # problem 9
 ```
 CREATE TABLE solution
@@ -162,6 +168,7 @@ SELECT CONCAT('A', id),
 
 SELECT * FROM solution;
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem9.PNG?raw=true)
 # problem 10
 ```
 CREATE VIEW solution AS
@@ -177,6 +184,7 @@ SELECT A.id,
 
 select * from solution;	
 ```
+![photo.PNG](https://github.com/joo-hwan/SKCC_final_JooHwan/blob/master/part2/problem10.PNG?raw=true)
 # problem 11
 ```
 SELECT A.brand,
