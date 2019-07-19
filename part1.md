@@ -1,4 +1,5 @@
-#Linux setup
+# Linux setup
+
 ```
 i. Add the following linux accounts to all nodes (all host)
 $sudo useradd training -u 3800
