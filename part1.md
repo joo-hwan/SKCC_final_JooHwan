@@ -141,7 +141,10 @@ Thanks for using MariaDB!
   GRANT ALL ON nav.* TO 'nav'@'%' IDENTIFIED BY 'password';
   GRANT ALL ON navms.* TO 'navms'@'%' IDENTIFIED BY 'password';
   GRANT ALL ON oozie.* TO 'oozie'@'%' IDENTIFIED BY 'password';
-
+  
+  training 계정 사용위해 모든권한 부여
+  GRANT ALL ON *.* TO 'training'@'%' IDENTIFIED BY 'training';
+  
   SHOW DATABASES;
  
   EXIT;
